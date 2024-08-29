@@ -28,13 +28,11 @@ const Navbar = () => {
                         Resources
                     </NavLink>
                     
-                    <NavLink to="/sign-up" activeStyle>
-                        login
-                    </NavLink>
+                    
                     
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to="/signin">
+                    <NavBtnLink to="/login">
                         Login
                     </NavBtnLink>
                 </NavBtn>
