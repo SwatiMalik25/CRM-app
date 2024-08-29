@@ -2,19 +2,34 @@
 
 import React from "react";
 
-const Login = () => {
+
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    // taking the username and email password parameters:
+    const username = data.get("username");
+    const email = data.get("email");
+    const password = data.get("password");
+
+    // TODO: create the api method in order to setup the account authentication on the supabase.
+
+
+    console.log(data);
+  };
+const LoginButton = () => {
     return (
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "centre",
-                alignItems: "centre",
-                height: "100vh",
-            }}
-        >
-            <h1>Sign Up</h1>
-        </div>
+      <>
+      <form onSubmit={handleSubmit}>
+        <label>
+            Username:
+            <input type="text" name="username" />
+            </label>
+            <input type="text" name="password" />
+      </form>
+      </>
     );
 };
 
 export default Login;
+                                                                 
