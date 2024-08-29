@@ -17,7 +17,7 @@ const handleSubmit = (event) => {
 
     console.log(data);
   };
-const LoginButton = () => {
+const Login = () => {
     return (
       <>
       <form onSubmit={handleSubmit}>
