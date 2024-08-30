@@ -1,6 +1,7 @@
 
 
 import React, {useState} from 'react';
+import { supabase } from '../../client';
 
 
 
@@ -31,12 +32,30 @@ function Login() {
 
     }
 
-    const handleSubmit  = () => {
-        console.log(firstName,lastName,email,password,confirmPassword);
+    async function handleSubmit  ()  {
+    
+     try {
+        const { data,error } = await supabase.auth.signUp({
+            email: data.email,
+            password: data.password,
+            confirmPassword:data.confirmPassword,
+            options : {
+              data:{
+                firstName:data.firstName,
+                lastName:data.lastName,
+              }
+            }
+          }
+        )
+        alert('check your email for verification link')
+     } catch (error) {
+        alert(error)
+     }
+          
     }
 
     return(
-        <div className="form">
+        <div className="form" >
             <div className="form-body">
                 <div className="username">
                     <label className="form__label" for="firstName">First Name </label>
@@ -60,7 +79,7 @@ function Login() {
                 </div>
             </div>
             <div class="footer">
-                <button onClick={()=>handleSubmit()} type="submit" class="btn">Register</button>
+                <button onClick={()=>handleSubmit()} type="submit" class="btn">Login</button>
             </div>
         </div>
        
