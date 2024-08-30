@@ -1,7 +1,7 @@
 
 import React from "react";
 
-const CRM   = () => {
+const CRM = () => {
     return (
         <div
             style={{

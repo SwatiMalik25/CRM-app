@@ -1,40 +1,55 @@
 
 
 import React, {useState} from 'react';
-import { supabase } from '../../client';
+import {SupabaseClient} from "@supabase/supabase-js"
+import {configDotenv} from "dotenv"
 
 
+configDotenv({
+  path: resolvePath( __dirname,"../../.env")
+});
 
-function Login() {
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password,setPassword] = useState(null);
-    const [confirmPassword,setConfirmPassword] = useState(null);
 
-    const handleInputChange = (e) => {
-        const {id , value} = e.target;
-        if(id === "firstName"){
-            setFirstName(value);
-        }
-        if(id === "lastName"){
-            setLastName(value);
-        }
-        if(id === "email"){
-            setEmail(value);
-        }
-        if(id === "password"){
-            setPassword(value);
-        }
-        if(id === "confirmPassword"){
-            setConfirmPassword(value);
-        }
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
+const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+    // taking the username and email password parameters:
+    const username = data.get("username");
+    const email = data.get("email");
+    const password = data.get("password");
+
+    const supabase = new SupabaseClient(supabaseUrl, supabaseAnonKey);
+    try {
+      const {data, error} = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            username: username
+          }
+        }
+      });
+    } catch (error) {
+      console.log(error);
     }
-
-    const handleSubmit  = () => {
-        console.log(firstName,lastName,email,password,confirmPassword);
-    }
+  };
+const Login = () => {
+    return (
+      <>
+      <form onSubmit={handleSubmit}>
+        <label>
+            Username:
+            <input type="text" name="username" />
+            </label>
+            <input type="text" name="password" />
+      </form>
+      </>
+    );
+};
 
     return(
         <div className="form">
