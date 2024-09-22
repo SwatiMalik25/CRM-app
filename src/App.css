@@ -36,3 +36,13 @@ body{
   font-family:sans-serif;
   font-size:12px;
  }
+
+// Header styles
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
