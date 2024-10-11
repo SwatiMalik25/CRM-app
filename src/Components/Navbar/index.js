@@ -15,7 +15,7 @@ const Navbar = () => {
                 <Bars />
 
                 <NavMenu>
-                    <NavLink to="/CRM demo" >
+                    <NavLink to="/CRM demo">
                         CRM demo
                     </NavLink>
                     <NavLink to="/products" activeStyle>
@@ -27,12 +27,12 @@ const Navbar = () => {
                     <NavLink to="/resources" activeStyle>
                         Resources
                     </NavLink>
-                    
-                    
-                    
+                    <NavLink to="/register" activeStyle>
+                        Register
+                    </NavLink>
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to="/login">
+                    <NavBtnLink to="/Login">
                         Login
                     </NavBtnLink>
                 </NavBtn>

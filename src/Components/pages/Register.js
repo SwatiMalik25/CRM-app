@@ -4,33 +4,39 @@ import { Card } from '../ui/card'; // Adjust the path if necessary
 import { Button } from '../ui/button'; // Adjust the path if necessary
 import { Input } from '../ui/input'; // Adjust the path if necessary
 
-const Login = () => {
-    const [name, setName] = useState(''); // Added name state
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const Register = () => {
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: ''
+    });
     const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you would typically handle login logic, e.g., API call
-        console.log('Login data:', { name, email, password });
-        
-        // After successful login, navigate to SignIn with a welcome message
-        navigate('/signin', { state: { message: `Welcome, ${name}!` } });
+        // Here you would typically send the data to your backend
+        console.log('Registration data:', formData);
+        // Redirect to the sign-in page after successful registration
+        navigate('/signin'); // Change this line if needed
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-4">
             <Card className="w-full max-w-md p-6">
-                <h2 className="text-2xl font-bold mb-4">Login</h2>
-                <form onSubmit={handleSubmit}>
+                <h2 className="text-2xl font-bold mb-4">Register</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label htmlFor="name" className="block mb-1">Name</label>
+                        <label htmlFor="username" className="block mb-1">Username</label>
                         <Input
                             type="text"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            id="username"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -39,8 +45,9 @@ const Login = () => {
                         <Input
                             type="email"
                             id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -49,17 +56,18 @@ const Login = () => {
                         <Input
                             type="password"
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
                             required
                         />
                     </div>
-                    <Button type="submit" className="w-full">Login</Button>
+                    <Button type="submit" className="w-full">Register</Button>
                 </form>
                 <p className="mt-4 text-center">
-                    Don't have an account?{' '}
-                    <Link to="/register" className="text-blue-500 hover:underline">
-                        Register
+                    Already have an account?{' '}
+                    <Link to="/signin" className="text-blue-500 hover:underline">
+                        Sign In
                     </Link>
                 </p>
             </Card>
@@ -67,4 +75,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
