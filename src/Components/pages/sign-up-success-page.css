@@ -1,0 +1,176 @@
+/* SignUpSuccessPage.css */
+
+/* Base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Layout utilities */
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+/* Background and padding */
+.bg-white {
+    background-color: white;
+}
+
+.p-responsive {
+    padding: 1rem;
+}
+
+/* Borders */
+.border-b {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.border-t {
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Typography */
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.max-w-content {
+    max-width: 600px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/* Icons and Images */
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* Button styles */
+.button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #f3f4f6;
+}
+
+/* Input styles */
+.input .sr-only {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    width: 100%;
+    font-size: 0.875rem;
+}
+
+/* Footer styles */
+.footer-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Message input container */
+.message-input-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Flex direction utilities */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+/* Gap utilities */
+.gap-2 {
+    gap: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .h-14 {
+        height: 3.5rem;
+    }
+
+    .text-sm {
+        font-size: 0.875rem;
+    }
+
+    .text-base {
+        font-size: 0.875rem;
+    }
+
+    .text-lg {
+        font-size: 1rem;
+    }
+
+    .footer-container {
+        padding: 0.5rem;
+    }
+
+    .p-responsive {
+        padding: 0.5rem;
+    }
+
+    .gap-2 {
+        gap: 0.25rem;
+    }
+}
+
+/* Adjust button styles for smaller screens */
+@media (max-width: 480px) {
+    .button {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .h-9 {
+        height: 2.25rem;
+    }
+
+    .h-12 {
+        height: 3rem;
+    }
+}

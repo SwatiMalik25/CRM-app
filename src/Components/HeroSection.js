@@ -4,7 +4,16 @@ import {
   Link,
 } from "react-router-dom";
 import MountainIcon from "../Components/MountainIcon" ;
+import { useLocation } from 'react-router-dom';
+
 function HeroSection() {
+  const location = useLocation();
+
+  // Only render the HeroSection if the current path is "/"
+  if (location.pathname !== '/') {
+    return null; // Do not render anything if not on the home page
+  }
+
   return (
     <section className="min-h-screen flex flex-col bg-black text-white">
           
@@ -22,16 +31,16 @@ function HeroSection() {
                     <div className="border-t border-gray-200">
         <nav className="container mx-auto flex justify-end py-2">
           <div className="space-x-6">
-            <Link href="/features" className="text-sm text-gray-600 hover:text-gray-900">
+            <Link to="/features" className="text-sm text-gray-600 hover:text-gray-900">
               Features
             </Link>
-            <Link href="/pricing" className="text-sm text-gray-600 hover:text-gray-900">
+            <Link to="/pricing" className="text-sm text-gray-600 hover:text-gray-900">
               Pricing
             </Link>
-            <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900">
+            <Link to="/about" className="text-sm text-gray-600 hover:text-gray-900">
               About
             </Link>
-            <Link href="/contact" className="text-sm text-gray-600 hover:text-gray-900">
+            <Link to="/contact" className="text-sm text-gray-600 hover:text-gray-900">
               Contact
             </Link>
           </div>
