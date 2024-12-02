@@ -5,7 +5,6 @@ import {
     Bars,
     NavMenu,
     NavBtn,
-    NavBtnLink,
 } from "./NavbarElements";
 
 const Navbar = () => {
@@ -15,26 +14,71 @@ const Navbar = () => {
                 <Bars />
 
                 <NavMenu>
-                    <NavLink to="/CRM demo" >
+                    <NavLink
+                        to="/CRM demo"
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
                         CRM demo
                     </NavLink>
-                    <NavLink to="/products" activeStyle>
+                    <NavLink 
+                        to="/products" 
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
                         Products
                     </NavLink>
-                    <NavLink to="/pricing" activeStyle>
+                    <NavLink 
+                        to="/pricing" 
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
                         Pricing
                     </NavLink>
-                    <NavLink to="/resources" activeStyle>
+                    <NavLink 
+                        to="/resources" 
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
                         Resources
                     </NavLink>
-                    
-                    
-                    
+                    <NavLink 
+                        to="/register" 
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
+                        Register
+                    </NavLink>
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to="/login">
+                    <NavLink 
+                        to="/user-info" // Updated to link to UserInfoForm page
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
                         Login
-                    </NavBtnLink>
+                    </NavLink>
+                    <NavLink 
+                        to="/logout" // Add a link to the Logout page
+                        style={({ isActive }) => ({
+                            fontWeight: isActive ? 'bold' : 'normal',
+                            color: isActive ? 'blue' : 'black',
+                        })}
+                    >
+                        Logout
+                    </NavLink>
                 </NavBtn>
             </Nav>
         </>
