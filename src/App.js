@@ -6,14 +6,13 @@ import CRM from "../src/Components/pages/CRM demo";
 import Products from "../src/Components/pages/products";
 import Pricing from "../src/Components/pages/pricing";
 import Resources from "../src/Components/pages/resources";
-import Login from "./Components/pages/Login"; // Ensure this import is correct
+import Login from "./Components/pages/login"; // Ensure this import is correct
 import HeroSection from "../src/Components/HeroSection";
 import { Card } from "../src/Components/ui/card";
 import { Button } from "../src/Components/ui/button";
 import { Input } from "../src/Components/ui/input";
 import SignIn from "../src/Components/pages/SignIn"; // Ensure this import is correct
 import Register from "../src/Components/pages/Register"; // Ensure this import is correct
-import Login from "./Components/pages/Login";
 function Registered() {
     const location = useLocation();
     const username = location.state?.username || 'User';
