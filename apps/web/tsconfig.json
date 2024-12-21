@@ -1,0 +1,28 @@
+{
+  "extends": "../../packages/design-system/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@repo/*": [
+        "../../packages/*"
+      ]
+    }
+  },
+  "moduleResolution": "node",
+
+  "allowJs": true,
+  "jsx": "preserve",
+  "plugins": [{ "name": "next" }],
+
+  "include": [
+    "next-env.d.ts",
+    "next.config.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+}
